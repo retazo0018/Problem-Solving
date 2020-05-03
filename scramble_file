@@ -1,0 +1,61 @@
+getUserString  = str(input("Enter the text to be written in the file which is to be scrambled"))
+punctuation = ['.',',','!','?',"'",'@','_','-']
+f = open('original.txt','w+')
+f.write(getUserString)
+f.seek(0)
+print("Original File content:")
+print(f.read())
+fs = open('scrambled.txt','w+')
+f.close()
+res=[]
+pun=[]
+check = 0
+flag=0
+sword=''
+lastchar= ''
+with open('original.txt','r') as f:
+    for line in f:
+        for word in line.split():
+            w = list(word)
+            length = len(w)
+            if(length > 3):
+                if(w.count("'")>0):
+                    appindex = w.index("'")
+                    flag=1
+                res+=w[0]
+                for i in range(len(w)-1,0,-1):
+                    if((w[i].isalpha()) and (check == 0)):
+                        lastchar = w[i]
+                        lcharindex = i
+                        check = 1
+                    if(w[i] in punctuation):
+                        temp = w[i]
+                        pun+=temp
+                        w.remove(temp)
+                    else:
+                        if(i!=lcharindex):
+                            res+=w[i]
+                res+=lastchar
+                for k in range(len(pun)-1,-1,-1):
+                    res+=pun[k]
+                if(flag==1):
+                    res.remove("'")
+                    res.insert(appindex,"'")
+                sword = ''.join(str(e) for e in res)
+            else:
+                sword=word
+            fs.write(sword)
+            fs.write(' ')
+            flag=0
+            res=[]
+            w=[]
+            pun = []
+            lastchar=  ''
+            sword=''
+            check = 0
+    fs.write('\n')
+fs.close()
+fs = open('scrambled.txt','r')
+print("Scrambled file content:")
+print(fs.read())
+fs.close()

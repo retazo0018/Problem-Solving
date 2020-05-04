@@ -1,3 +1,3 @@
 # Algorithms
 
-Solution to generic problems
+Solution to few generic problems

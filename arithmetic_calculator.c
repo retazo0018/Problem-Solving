@@ -1,3 +1,6 @@
+// A simple Arithmetic Calculator which can process text or numeric inputs from the user.
+// Eg 1. Input: 2+2 Output: 4
+// Eg.2  Input 2 plus 2: 4
 #include<stdio.h>
 #include<ctype.h>
 #include<string.h>

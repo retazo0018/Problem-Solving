@@ -1,3 +1,4 @@
+# Simple Breadth First Seach Algorithm
 class Tree:
     def __init__(self,data=None):
         self.data = data

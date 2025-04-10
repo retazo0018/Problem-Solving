@@ -1,3 +1,3 @@
-# Algorithms
+# Problem Solving
 
-Solution to few generic problems
+This repository contains code solutions to a few chosen problems and algorithms.
